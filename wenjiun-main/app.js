@@ -1,4 +1,3 @@
-
 import * as THREE from './libs/three/three.module.js';
 import { GLTFLoader } from './libs/three/jsm/GLTFLoader.js';
 import { DRACOLoader } from './libs/three/jsm/DRACOLoader.js';
@@ -31,6 +30,11 @@ class App{
         
 		const ambient = new THREE.HemisphereLight(0xFFFFFF, 0xAAAAAA, 0.8);
 		this.scene.add(ambient);
+
+        // Add directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(5, 10, 7.5);
+        this.scene.add(directionalLight);
 
 		this.renderer = new THREE.WebGLRenderer({ antialias: true });
 		this.renderer.setPixelRatio( window.devicePixelRatio );
